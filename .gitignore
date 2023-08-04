@@ -1,0 +1,7 @@
+/log/*.log
+/vendor/
+.env
+.idea/
+/bin/
+/cache/
+/messenger

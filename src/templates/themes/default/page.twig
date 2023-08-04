@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Standard SEO Meta Tags -->
+    <meta name="title" content="Transforming the way IT specialists interact in the business world by creating a vocational environment where skilled individuals from different disciplines can collaborate together." />
+    <meta name="description" content="Code Infinity is a cutting-edge technology company at the forefront of leveraging AI in coding to enhance project development." />
+    <meta name="keywords" content="AI, coding, project development, efficiency, technology, software engineering" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Transforming the way IT specialists interact in the business world by creating a vocational environment where skilled individuals from different disciplines can collaborate together." />
+    <meta property="og:description" content="Code Infinity is a cutting-edge technology company at the forefront of leveraging AI in coding to enhance project development." />
+    <meta property="og:url" content="https://www.codeinfinity.co.za" />
+    <meta property="og:image" content="{{ Theme.Dir(site.theme) }}/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Code Infinity" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Transforming the way IT specialists interact in the business world by creating a vocational environment where skilled individuals from different disciplines can collaborate together." />
+    <meta name="twitter:description" content="Code Infinity is a cutting-edge technology company at the forefront of leveraging AI in coding to enhance project development." />
+    <meta name="twitter:url" content="https://www.codeinfinity.co.za" />
+    <meta name="twitter:image" content="{{ Theme.Dir(site.theme) }}/og-image.jpg" />
+
+    {% block headers %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Dosis:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ Theme.Dir(site.theme) }}/css/reboot.css">
+        <link rel="stylesheet" type="text/css" href="{{ Theme.Dir(site.theme) }}/css/tooltip.css">
+        <link rel="stylesheet" type="text/css" href="{{ Theme.Dir(site.theme) }}/css/tiny-slider.css">
+        <link rel="stylesheet" type="text/css" href="{{ Theme.Dir(site.theme) }}/css/default.css">
+        <script src="{{ Theme.Dir(site.theme) }}/js/main.js"></script>
+        <script src="{{ Theme.Dir(site.theme) }}/js/masonry.min.js"></script>
+        <script src="{{ Theme.Dir(site.theme) }}/js/tiny-slider.min.js"></script>
+        <script src="{{ Theme.Dir(site.theme) }}/js/imagesloaded.min.js"></script>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ Theme.Dir(site.theme) }}/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ Theme.Dir(site.theme) }}/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ Theme.Dir(site.theme) }}/favicon-16x16.png">
+        <link rel="manifest" href="{{ Theme.Dir(site.theme) }}/site.webmanifest">
+        <link rel="mask-icon" href="{{ Theme.Dir(site.theme) }}/safari-pinned-tab.svg" color="#16b2cf">
+        <meta name="msapplication-TileColor" content="#16b2cf">
+        <meta name="theme-color" content="#ffffff">
+
+    {% endblock %}
+    {% if site.custom %}
+        {{ site.custom | raw }}
+    {% endif %}
+</head>
+{% block body %}
+
+    <header class="header__top section">
+        <div class="header__top--left">
+            We are driven, ambitious and ready for challenges! <a href="mailto:info@codeinfinity.co.za">Hire Us</a>
+        </div>
+        <div class="header__top--right">
+            <a href="mailto:info@codeinfinity.co.za" class="header__top-icon header__top-icon--email"><img src="{{ baseURL }}/images/top-header-icon-email.svg" alt="Email Icon"><span>info@codeinfinity.co.za</span></a>
+            <a href="https://github.com/tina4stack/" target="_blank" class="header__top-icon hint--bottom-left" aria-label="TINA4"><img src="{{ baseURL }}/images/top-header-icon-tina4.svg" alt="Tina4 Icon"></a>
+            <a href="https://github.com/c8einfinity/" target="_blank" class="header__top-icon hint--bottom-left" aria-label="C8 GitHub"><img src="{{ baseURL }}/images/top-header-icon-github.svg" alt="Github Icon"></a>
+            <a href="https://discord.gg/VN5WKXnKbX/" target="_blank" class="header__top-icon hint--bottom-left" aria-label="TINA4 Discord"><img src="{{ baseURL }}/images/top-header-icon-discord.svg" alt="Discord Icon"></a>
+        </div>
+    </header>
+    <header class="header">
+        <div class="logo">
+            <img style="" src="{{ baseURL }}/images/c8-logo.svg" alt="Code Infinity Logo">
+        </div>
+        <div class="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="navbarMenu" class="navbar-menu">
+            <li>
+                <a href="#home">Home</a>
+            </li>
+            <li>
+                <a href="#services">Services</a>
+            </li>
+            <li>
+                <a href="#our-values">Our Values</a>
+            </li>
+            <li>
+                <a href="#we-are-agile">We are Agile</a>
+            </li>
+            <li>
+                <a href="#c8-vocabulary">C8 Vocabulary</a>
+            </li>
+        </ul>
+        <div class="header__ctas">
+            <a href="#contact" class="button button-primary">Contact Us</a>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </header>
+    <div class="content">
+        <section class="section section__home" id="home">
+            <div class="container container--home">
+                <div class="section__home--left" style="z-index: 1;">
+                    <h1 class="hero-heading">Welcome to <br />Code Infinity.</h1>
+                    <h2 class="hero-info">Code Infinity is a cutting-edge technology company at the forefront of
+                        leveraging AI in coding to enhance project development. With a dedicated team of AI experts and
+                        software engineers, we aim to revolutionize the way projects are implemented by integrating
+                        artificial intelligence into the coding process. Our goal is to help businesses achieve greater
+                        efficiency, accuracy, and productivity while reducing development time and costs.</h2>
+                </div>
+                <div class="section__home--right" style="z-index: 1;">
+                    <img style="" src="{{ baseURL }}/images/c8-symbol.png" alt="Code Infinity Symbol">
+                </div>
+            </div>
+            <canvas id="canvas" style="z-index: 0;"></canvas>
+        </section>
+
+        <section class="section section__services" id="services">
+            <div class="container container--services">
+                <div class="services-cards">
+                    <div class="services-cards__row">
+                        <div class="services-card">
+                            <a href="#ai_powered"></a>
+                            <h3 class="services-card__heading">AI-powered Code Generation</h3>
+                            <img class="services-card__icon" src="{{ baseURL }}/images/icon-services-ai-code.svg" alt="AI Code Icon">
+                        </div>
+                        <div class="services-card">
+                            <a href="#code_review"></a>
+                            <h3 class="services-card__heading">Intelligent Code Review</h3>
+                            <img class="services-card__icon" src="{{ baseURL }}/images/icon-services-code-review.svg" alt="Code Review Icon">
+                        </div>
+                        <div class="services-card">
+                            <a href="#refactoring"></a>
+                            <h3 class="services-card__heading">Code Refactoring and Optimization</h3>
+                            <img class="services-card__icon" src="{{ baseURL }}/images/icon-services-refactoring.svg" alt="Refactoring Icon">
+                        </div>
+                    </div>
+                    <div class="services-cards__row--centered-row">
+                        <div class="services-card">
+                            <a href="#bug_detection"></a>
+                            <h3 class="services-card__heading">Automated Testing and Bug Detection</h3>
+                            <img class="services-card__icon" src="{{ baseURL }}/images/icon-services-bug.svg" alt="Bug Icon">
+                        </div>
+                        <div class="services-card">
+                            <a href="#ai_solutions"></a>
+                            <h3 class="services-card__heading">Custom AI Solutions Code Generation</h3>
+                            <img class="services-card__icon" src="{{ baseURL }}/images/icon-services-ai-solutions.svg" alt="AI Solutions Icon">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-info-cards">
+                    <div class="grid">
+                        <div class="grid-item" id="ai_powered">
+                            <div class="services-info-card">
+                                <img class="services-info-card__icon" src="{{ baseURL }}/images/icon-services-large-ai-code.svg" alt="AI Solutions Icon">
+                                <div>
+                                    <h3 class="services-info-card__heading">AI-powered Code Generation</h3>
+
+                                    <p class="services-info-card__text">We employ state-of-the-art machine learning
+                                        algorithms to automatically generate code snippets, modules, and even complete
+                                        components based on your project requirements.
+                                    </p>
+                                    <p class="services-info-card__text">Our AI models analyze patterns in existing
+                                        codebases and industry best practices to generate high-quality code tailored to
+                                        your specific needs.
+                                    </p>
+                                    <p class="services-info-card__text">By automating repetitive coding tasks, we
+                                        accelerate development cycles and improve code consistency.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="services-info-card__subtext">
+                                <h4>Accelerated Development</h4>
+                                <p>Our AI-powered coding solutions reduce development time by automating
+                                    repetitive tasks and generating code tailored to your project needs.</p>
+                            </div>
+                        </div>
+                        <div class="grid-item" id="code_review">
+                            <div class="services-info-card">
+                                <img class="services-info-card__icon" src="{{ baseURL }}/images/icon-services-large-code-review.svg" alt="AI Solutions Icon">
+                                <div>
+                                    <h3 class="services-info-card__heading">Intelligent Code Review</h3>
+                                    <p class="services-info-card__text">Our AI-powered code review system thoroughly
+                                        analyses your codebase for potential bugs, performance bottlenecks, and security
+                                        vulnerabilities.</p>
+                                    <p class="services-info-card__text">Leveraging advanced static analysis techniques
+                                        and machine learning algorithms, we provide comprehensive feedback and
+                                        suggestions for improvement.</p>
+                                    <p class="services-info-card__text">Our intelligent code review helps ensure code
+                                        quality and adherence to industry standards, reducing the likelihood of costly
+                                        errors and enhancing overall project reliability.</p>
+                                </div>
+                            </div>
+                            <div class="services-info-card__subtext">
+                                <h4>Enhanced Code Quality</h4>
+                                <p>Intelligent code review, refactoring, and optimization services improve code
+                                    reliability, maintainability, and adherence to industry standards.</p>
+                            </div>
+                        </div>
+                        <div class="grid-item" id="refactoring">
+                            <div class="services-info-card">
+                                <img class="services-info-card__icon" src="{{ baseURL }}/images/icon-services-large-refactoring.svg" alt="AI Solutions Icon">
+                                <div>
+                                    <h3 class="services-info-card__heading">Code Refactoring and Optimization</h3>
+                                    <p class="services-info-card__text">Our AI algorithms assist in identifying areas of
+                                        your codebase that can be refactored and optimized for improved performance,
+                                        scalability, and maintainability.</p>
+                                    <p class="services-info-card__text">By applying machine learning techniques, we
+                                        analyse your code for inefficient patterns, redundant code, and outdated
+                                        practices, and provide automated suggestions for refactoring.</p>
+                                    <p class="services-info-card__text">Our code refactoring services enhance the
+                                        long-term sustainability of your projects, enabling them to adapt to evolving
+                                        requirements and scale efficiently.</p>
+                                </div>
+                            </div>
+                            <div class="services-info-card__subtext">
+                                <h4>Cost Efficiency</h4>
+                                <p>By automating coding processes, we help you save costs associated with manual
+                                    development and reduce the likelihood of errors that could lead to expensive
+                                    rework.</p>
+                            </div>
+                        </div>
+                        <div class="grid-item" id="bug_detection">
+                            <div class="services-info-card">
+                                <img class="services-info-card__icon" src="{{ baseURL }}/images/icon-services-large-bug.svg" alt="AI Solutions Icon">
+                                <div>
+                                    <h3 class="services-info-card__heading">Automated Testing and Bug Detection</h3>
+                                    <p class="services-info-card__text">We leverage AI algorithms to automate testing
+                                        processes and identify potential bugs and issues within your codebase.</p>
+                                    <p class="services-info-card__text">Our intelligent testing frameworks simulate
+                                        various scenarios, stress test your application, and detect edge cases that may
+                                        lead to unexpected behaviour.</p>
+                                    <p class="services-info-card__text">By detecting bugs early in the development
+                                        cycle, we help you save time and effort, ensuring higher software quality and
+                                        better end-user experiences.</p>
+                                </div>
+                            </div>
+                            <div class="services-info-card__subtext">
+                                <h4>Scalability and Adaptability</h4>
+                                <p>Our AI solutions ensure your codebase is optimized for scalability, enabling your
+                                    projects to evolve and adapt to changing requirements.</p>
+                            </div>
+                        </div>
+                        <div class="grid-item" id="ai_solutions">
+                            <div class="services-info-card">
+                                <img class="services-info-card__icon" src="{{ baseURL }}/images/icon-services-large-ai-solutions.svg" alt="AI Solutions Icon">
+                                <div>
+                                    <h3 class="services-info-card__heading">Custom AI Solutions</h3>
+                                    <p class="services-info-card__text">Apart from our core services, we also offer
+                                        tailored AI solutions to address your specific coding challenges.</p>
+                                    <p class="services-info-card__text">Whether you need assistance with natural
+                                        language processing, data analysis, or predictive modelling, our team of AI
+                                        experts can develop custom solutions to meet your unique requirements.</p>
+                                </div>
+                            </div>
+                            <div class="services-info-card__subtext">
+                                <h4>Expert AI Guidance</h4>
+                                <p>Our team of AI specialists provides ongoing support, ensuring seamless integration of
+                                    AI techniques into your development workflow.</p>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="services-info-card__cta">
+                                <h2><span style="color: var(--color-blue);">Revolutionize</span> your business by unlocking the power of AI-driven software
+                                    solutions.</h2>
+                                <a href="#contact" class="button button-primary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section section__services--platform-logos">
+            <div class="container">
+                <div class="platform-logo-slider">
+                    <div><img src="{{ baseURL }}/images/service-logo-aws.png" alt="Platform Logo Aws"></div>
+                    <div><img src="{{ baseURL }}/images/service-logo-azure.png" alt="Platform Logo Azure"></div>
+                    <div><img src="{{ baseURL }}/images/service-logo-magento.png" alt="Platform Logo Magento"></div>
+                    <div><img src="{{ baseURL }}/images/service-logo-python.png" alt="Platform Logo Python"></div>
+                    <div><img src="{{ baseURL }}/images/service-logo-rad.png" alt="Platform Logo Rad"></div>
+                    <div><img src="{{ baseURL }}/images/service-logo-shopify.png" alt="Platform Logo Shopify"></div>
+                    <div><img src="{{ baseURL }}/images/service-logo-tina4.png" alt="Platform Logo Tina4"></div>
+                    <div><img src="{{ baseURL }}/images/service-logo-wordpress.png" alt="Platform Logo WordPress"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section__values" id="our-values">
+            <div class="container">
+                <h2 class="section-heading" style="color: var(--color-blue);"><small style="color: #fff;">Code Infinity</small>What sets us apart from the rest</h2>
+                <div class="values-info-cards">
+                    <div class="values-info-cards--col">
+                        <div class="values-info-card">
+                            <img class="values-info-card__icon" src="{{ baseURL }}/images/icon-values-communication.svg" alt="Communication Icon">
+                            <div>
+                                <h3 class="values-info-card__heading">Communication over Deadlines</h3>
+                                <p class="values-info-card__text">At Code Infinity, we understand the importance of
+                                    deadlines, but we prioritize clear communication and managing expectations with our
+                                    customers and team members to ensure transparency and avoid surprises.</p>
+                            </div>
+                        </div>
+                        <div class="values-info-card">
+                            <img class="values-info-card__icon" src="{{ baseURL }}/images/icon-values-sustainability.svg" alt="Sustainability Icon">
+                            <div>
+                                <h3 class="values-info-card__heading">Sustainability over Profit</h3>
+                                <p class="values-info-card__text">At Code Infinity, we believe that sustainable growth and
+                                    ethical practices should take precedence over short-term profit. We strive to build
+                                    long-lasting relationships, prioritize fair business dealings, and contribute positively
+                                    to the community and the environment.</p>
+                            </div>
+                        </div>
+                        <div class="values-info-card">
+                            <img class="values-info-card__icon" src="{{ baseURL }}/images/icon-values-teachability.svg" alt="Teachability Icon">
+                            <div>
+                                <h3 class="values-info-card__heading">Teachability over Skill</h3>
+                                <p class="values-info-card__text">While skills are essential, we value a teachable spirit
+                                    that fosters continuous learning and growth. We believe that combining skills with a
+                                    willingness to learn and share knowledge creates a strong asset within our team.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="values-info-cards--col">
+                        <div class="values-info-card">
+                            <img class="values-info-card__icon" src="{{ baseURL }}/images/icon-values-relationships.svg" alt="Relationships Icon">
+                            <div>
+                                <h3 class="values-info-card__heading">Relationships over Obligations</h3>
+                                <p class="values-info-card__text">While delivering exceptional results is important, we
+                                    value our relationships with clients, partners, and team members. We prioritize
+                                    maintaining strong connections, fostering collaboration, and avoiding actions that could
+                                    damage long-term relationships.</p>
+                            </div>
+                        </div>
+                        <div class="values-info-card">
+                            <img class="values-info-card__icon" src="{{ baseURL }}/images/icon-values-simplicity.svg" alt="Simplicity Icon">
+                            <div>
+                                <h3 class="values-info-card__heading">Simplicity & Results over Complex Procedures & Administration</h3>
+                                <p class="values-info-card__text">We embrace the principle of simplicity, aiming to deliver
+                                    effective results without unnecessary complexity. We prioritize transparency and ensure
+                                    that our solutions are efficient, easy to understand, and leave a positive impact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img class="values-info-symbol" src="{{ baseURL }}/images/c8-symbol.png" alt="Code Infinity Symbol">
+        </section>
+
+        <section class="section section__agile" id="we-are-agile">
+            <div class="container">
+                <h2 class="section-heading" style="color: #fff;"><small style="color: #fff;">We are Agile (for Real)</small>Our Approach to software development</h2>
+                <div class="agile-info-cards">
+                    <div class="agile-info-card">
+                        <div>
+                            <h3 class="agile-info-card__heading">Individuals and interactions over processes and tools</h3>
+                            <p class="agile-info-card__text">We emphasize the importance of effective collaboration, communication,
+                                and teamwork within our software development projects, valuing the contributions of
+                                individuals and promoting an environment that encourages open dialogue.</p>
+                        </div>
+                    </div>
+                    <div class="agile-info-card">
+                        <div>
+                            <h3 class="agile-info-card__heading">Working software over comprehensive documentation</h3>
+                            <p class="agile-info-card__text">Our focus is on delivering working software that meets the needs of
+                                our customers. While documentation has its place, we believe that the primary measure of
+                                progress is functional and reliable software.</p>
+                        </div>
+                    </div>
+                    <div class="agile-info-card">
+                        <div>
+                            <h3 class="agile-info-card__heading">Customer collaboration over contract negotiation</h3>
+                            <p class="agile-info-card__text"> We actively engage our customers throughout the development process,
+                                seeking their feedback and involvement to ensure that the final product aligns with
+                                their vision and goals. We believe in building strong partnerships based on
+                                collaboration and trust.</p>
+                        </div>
+                    </div>
+                    <div class="agile-info-card">
+                        <div>
+                            <h3 class="agile-info-card__heading">Responding to Change over following a plan</h3>
+                            <p class="agile-info-card__text">We recognize that software development is an iterative process and
+                                that requirements may change over time. We embrace change and adapt our plans
+                                accordingly, continuously seeking feedback and making adjustments to deliver the best
+                                possible outcome.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section__vocab" id="c8-vocabulary">
+            <div class="container">
+                <h2 class="section-heading" style="color: #423F6F;"><small style="color: #586DA1;">Our Vocabulary</small>Terms we live and work by</h2>
+                <div class="vocab-info-cards">
+                    <div class="vocab-info-cards--col">
+                        <div class="vocab-info-card">
+                            <h3 class="vocab-info-card__heading">Software Engineers</h3>
+                            <p class="vocab-info-card__text">At Code Infinity, we refer to our core team members as
+                                software engineers. These engineers are highly skilled professionals who specialize
+                                in the design, development, testing, and maintenance of software applications. They
+                                apply engineering principles and utilize various programming languages to create
+                                innovative solutions for end users.</p>
+                        </div>
+                        <div class="vocab-info-card">
+                            <h3 class="vocab-info-card__heading">Discipline</h3>
+                            <p class="vocab-info-card__text">At Code Infinity, we emphasize the importance of
+                                discipline in executing tasks without constant supervision. Each team member takes
+                                personal accountability for their work, seeking guidance and support from their
+                                peers when needed. We believe that discipline drives personal and professional
+                                growth, contributing to the overall success of our projects and the satisfaction of
+                                our clients.</p>
+                        </div>
+                    </div>
+                    <div class="vocab-info-cards--col">
+                        <div class="vocab-info-card">
+                            <h3 class="vocab-info-card__heading">Communication</h3>
+                            <p class="vocab-info-card__text">Communication is a vital aspect of the Code Infinity
+                                culture. It encompasses effective information exchange among team members and
+                                fosters a sense of belonging even in a remote work environment. We prioritize
+                                inclusive communication, ensuring that everyone feels valued regardless of their
+                                skill level or team affiliation. It also extends to transparently conveying our
+                                principles and work approach to our customers.</p>
+                        </div>
+                        <div class="vocab-info-card">
+                            <h3 class="vocab-info-card__heading">Customer Service</h3>
+                            <p class="vocab-info-card__text">Providing exceptional customer service is a core value
+                                at Code Infinity. We value active listening and understanding our customers' needs
+                                before reaching conclusions or proposing solutions. Each reported issue is carefully
+                                evaluated, and we strive to address it promptly and effectively. We prioritize
+                                "immediate response" and clear communication, utilizing channels like Slack for
+                                customer communication and ensuring transparency through customer-facing
+                                channels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section__contact" id="contact">
+            <div class="container">
+                <h2 class="section-heading" style="color: var(--color-blue);"><small style="color: var(--color-grey);">Get in Touch</small>Contact us for more information</h2>
+                <div class="contact__form-container">
+                    <form id="contactForm" method="post">
+                        <div class="form-group--two-col">
+                            <div class="form-group">
+                                <label for="userName">FULL NAME *</label>
+                                <input type="text" id="userName" name="userName" required placeholder="Enter your full name" class="form-control">
+                                <span id="userNameError" class="validation-tag"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail">EMAIL *</label>
+                                <input type="email" id="userEmail" name="userEmail" required placeholder="Enter your Email" class="form-control">
+                                <span id="userEmailError" class="validation-tag"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group--two-col">
+                            <div class="form-group">
+                                <label for="userTel">PHONE</label>
+                                <input id="userTel" name="userTel" placeholder="Enter your phone number" class="form-control">
+                                <span id="userTelError" class="validation-tag"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userCompany">COMPANY</label>
+                                <input type="text" id="userCompany" name="userCompany" placeholder="Enter your company name" class="form-control">
+                                <span id="userCompanyError" class="validation-tag"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userMessage">MESSAGE *</label>
+                            <textarea type="text" id="userMessage" name="userMessage" cols="5" rows="5" required placeholder="Type your message" class="form-control"></textarea>
+                            <span id="userMessageError" class="validation-tag"></span>
+                        </div>
+
+                        <button type="button" onclick="validateForm()" id="submitButton" disabled>Send Message</button>
+                    </form>
+                    <script>
+                        let fields = [
+                            {id: "userName", label: "Full name", required: true},
+                            {id: "userEmail", label: "Email address", required: true},
+                            {id: "userTel", label: "Phone number", required: false},
+                            {id: "userCompany", label: "Company", required: false},
+                            {id: "userMessage", label: "Message", required: true}
+                        ];
+
+                        window.validateForm = function() {
+                            let isValid = true;
+
+                            fields.forEach(field => {
+                                let value = document.getElementById(field.id).value.trim();
+                                let errorElement = document.getElementById(field.id + "Error");
+                                let inputElement = document.getElementById(field.id);
+
+                                if (field.required && !value) {
+                                    errorElement.innerText = field.label + " is required.";
+                                    inputElement.classList.add("error");
+                                    isValid = false;
+                                } else {
+                                    errorElement.innerText = "";
+                                    inputElement.classList.remove("error");
+                                }
+                            });
+
+                            let email = document.getElementById("userEmail").value;
+                            if (email && !email.match(/^\S+@\S+\.\S+$/)) {
+                                document.getElementById("userEmailError").innerText = "Please enter a valid email address.";
+                                document.getElementById("userEmail").classList.add("error");
+                                isValid = false;
+                            }
+
+                            let phone = document.getElementById("userTel").value;
+                            if (phone && !phone.match(/^\+?[1-9]\d{1,14}$/)) {
+                                document.getElementById("userTelError").innerText = "Please enter a valid phone number.";
+                                document.getElementById("userTel").classList.add("error");
+                                isValid = false;
+                            }
+
+                            document.getElementById('submitButton').disabled = !isValid;
+
+                            return isValid;
+                        };
+
+                        document.getElementById('contactForm').addEventListener('input', window.validateForm);
+                        window.validateForm();
+                    </script>
+
+                    <div class="contact__info-container">
+                        <div>
+                            <h3>Email:</h3>
+                            <a href="mailto:info@codeinfinity.com">info@codeinfinity.com</a>
+                        </div>
+                        <div>
+                            <h3>Phone:</h3>
+                            <a href="tel:2700 000 0000">+2700 000 0000</a>
+                        </div>
+                        <div>
+                            <h3>Address:</h3>
+                            123 Tech Street, City,<br> State, ZIP
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+    <footer class="section section__footer">
+        <div class="container">
+            <div>
+                &copy; <script type="text/javascript">var year = new Date();document.write(year.getFullYear());</script> | Code Infinity
+            </div>
+
+            <div>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    {#    {% block content %}#}
+    {#        {{ content | raw }}#}
+    {#    {% endblock %}#}
+{% endblock %}
+</html>
