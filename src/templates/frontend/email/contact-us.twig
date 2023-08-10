@@ -12,8 +12,13 @@
 				<tr>
 					<td style="padding: 30px; background-color: #ffffff;">
 						<div>
-							<p style="font-size: 18px; font-weight: bold; color: #16B2CF; margin-top: 0;">Hello Admin.</p>
-							<p>A user has filled in the contact form on the Code Infinity Website</p>
+							{% if admin == 1 %}
+								<p style="font-size: 18px; font-weight: bold; color: #16B2CF; margin-top: 0;">Hello Admin.</p>
+								<p>A user has filled in the contact form on the Code Infinity Website</p>
+							{% else %}
+								<p style="font-size: 18px; font-weight: bold; color: #16B2CF; margin-top: 0;">Hello {{ userName }}.</p>
+								<p>Thank you for reaching out to Code Infinity. We've successfully received your message and appreciate your input. Our team is dedicated to responding promptly, so you can expect to hear back from us soon.</p>
+							{% endif %}
 							<br>
 							<div style="height: 1px; background-color:#e5e5e5;">&nbsp;</div>
 							<br>
@@ -22,7 +27,7 @@
 							<p>{{ userEmail }}</p>
 							<p>{{ userTel }}</p>
 							<p>{{ userCompany }}</p>
-							<p>{{ userMessagep }}</p>
+							<p>{{ userMessage }}</p>
 						</div>
 					</td>
 				</tr>
