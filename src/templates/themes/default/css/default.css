@@ -718,7 +718,7 @@ select.form-control:focus::-ms-value {
 
 .services-info-card {
     padding: 25px;
-    padding-bottom: 133px;
+    padding-bottom: 160px;
     position: relative;
     overflow: hidden;
     background: #fff;
@@ -731,7 +731,7 @@ select.form-control:focus::-ms-value {
 @media (min-width: 768px) {
     .services-info-card {
         padding: 30px;
-        padding-bottom: 133px;
+        padding-bottom: 160px;
     }
 }
 
