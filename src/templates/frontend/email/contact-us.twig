@@ -1,13 +1,32 @@
-<div style="text-align: center; margin: 0 auto; width: 50%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-	<h4>
-		Dear {{ userName }}
-	</h4>
-	<p>
-		This email has been sent to you because you filled out a contact form.
-	</p>
-	<p>
-		<a href="{{ codeInfinityWebsite }}">Code Infinity Website</a>
-	</p>
-
-	Code Infinity
-</div>
+<table id="container" align="center" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; border-collapse: collapse; height: 100%; margin: 0; padding: 0; width: 100%; background-color: #fff;font-size: 14px;">
+	<tr>
+		<td align="center" valign="middle" style="height:100%; margin:0; padding:10px; width:100%; border-top:0">
+			<table cellspacing="0" cellpadding="0" border="0" style="font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; max-width: 600px!important; width: 600px;">
+				<tr>
+					<td id="header" width="100%" style="text-align: left; background-color: #fff; padding: 22px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;padding-bottom: 0;">
+						<a href="https://codeinfinity.co.za/" target="_blank" style="text-decoration:none;">
+							<img src="https://codeinfinity.co.za/images/c8-logo.jpg" width="200" />
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding: 30px; background-color: #ffffff;">
+						<div>
+							<p style="font-size: 18px; font-weight: bold; color: #16B2CF; margin-top: 0;">Hello Admin.</p>
+							<p>A user has filled in the contact form on the Code Infinity Website</p>
+							<br>
+							<div style="height: 1px; background-color:#e5e5e5;">&nbsp;</div>
+							<br>
+							<p><strong>Below is a copy of your correspondence:</strong></p>
+							<p>{{ userName }}</p>
+							<p>{{ userEmail }}</p>
+							<p>{{ userTel }}</p>
+							<p>{{ userCompany }}</p>
+							<p>{{ userMessagep }}</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
