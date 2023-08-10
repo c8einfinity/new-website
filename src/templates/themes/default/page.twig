@@ -12,7 +12,7 @@
     <meta property="og:title" content="Transforming the way IT specialists interact in the business world by creating a vocational environment where skilled individuals from different disciplines can collaborate together." />
     <meta property="og:description" content="Code Infinity is a cutting-edge technology company at the forefront of leveraging AI in coding to enhance project development." />
     <meta property="og:url" content="https://www.codeinfinity.co.za" />
-    <meta property="og:image" content="{{ Theme.Dir(site.theme) }}/og-image.jpg" />
+    <meta property="og:image" content="{{ baseURL }}/og-image.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Code Infinity" />
     <meta property="og:locale" content="en_US" />
@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Transforming the way IT specialists interact in the business world by creating a vocational environment where skilled individuals from different disciplines can collaborate together." />
     <meta name="twitter:description" content="Code Infinity is a cutting-edge technology company at the forefront of leveraging AI in coding to enhance project development." />
     <meta name="twitter:url" content="https://www.codeinfinity.co.za" />
-    <meta name="twitter:image" content="{{ Theme.Dir(site.theme) }}/og-image.jpg" />
+    <meta name="twitter:image" content="{{ baseURL }}/og-image.jpg" />
 
     {% block headers %}
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +43,7 @@
         <link rel="manifest" href="{{ Theme.Dir(site.theme) }}/site.webmanifest">
         <link rel="mask-icon" href="{{ Theme.Dir(site.theme) }}/safari-pinned-tab.svg" color="#16b2cf">
         <meta name="msapplication-TileColor" content="#16b2cf">
-        <meta name="theme-color" content="#ffffff">
+        <meta name="theme-color" content="#16B2CF">
 
     {% endblock %}
     {% if site.custom %}
@@ -80,10 +80,10 @@
                 <a href="#services">Services</a>
             </li>
             <li>
-                <a href="#our-values">Our Values</a>
+                <a href="#we-are-agile">We are Agile</a>
             </li>
             <li>
-                <a href="#we-are-agile">We are Agile</a>
+                <a href="#our-values">Our Values</a>
             </li>
             <li>
                 <a href="#c8-vocabulary">C8 Vocabulary</a>
@@ -285,6 +285,48 @@
             </div>
         </section>
 
+        <section class="section section__agile" id="we-are-agile">
+            <div class="container">
+                <h2 class="section-heading" style="color: #fff;"><small style="color: #fff;">WWWWe are Agile (for Real)</small>Our Approach to software development</h2>
+                <div class="agile-info-cards">
+                    <div class="agile-info-card">
+                        <div>
+                            <h3 class="agile-info-card__heading">Individuals and interactions over processes and tools</h3>
+                            <p class="agile-info-card__text">We emphasize the importance of effective collaboration, communication,
+                                and teamwork within our software development projects, valuing the contributions of
+                                individuals and promoting an environment that encourages open dialogue.</p>
+                        </div>
+                    </div>
+                    <div class="agile-info-card">
+                        <div>
+                            <h3 class="agile-info-card__heading">Working software over comprehensive documentation</h3>
+                            <p class="agile-info-card__text">Our focus is on delivering working software that meets the needs of
+                                our customers. While documentation has its place, we believe that the primary measure of
+                                progress is functional and reliable software.</p>
+                        </div>
+                    </div>
+                    <div class="agile-info-card">
+                        <div>
+                            <h3 class="agile-info-card__heading">Customer collaboration over contract negotiation</h3>
+                            <p class="agile-info-card__text"> We actively engage our customers throughout the development process,
+                                seeking their feedback and involvement to ensure that the final product aligns with
+                                their vision and goals. We believe in building strong partnerships based on
+                                collaboration and trust.</p>
+                        </div>
+                    </div>
+                    <div class="agile-info-card">
+                        <div>
+                            <h3 class="agile-info-card__heading">Responding to Change over following a plan</h3>
+                            <p class="agile-info-card__text">We recognize that software development is an iterative process and
+                                that requirements may change over time. We embrace change and adapt our plans
+                                accordingly, continuously seeking feedback and making adjustments to deliver the best
+                                possible outcome.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="section section__values" id="our-values">
             <div class="container">
                 <h2 class="section-heading" style="color: var(--color-blue);"><small style="color: #fff;">Code Infinity</small>What sets us apart from the rest</h2>
@@ -343,48 +385,6 @@
                 </div>
             </div>
             <img class="values-info-symbol" src="{{ baseURL }}/images/c8-symbol.png" alt="Code Infinity Symbol">
-        </section>
-
-        <section class="section section__agile" id="we-are-agile">
-            <div class="container">
-                <h2 class="section-heading" style="color: #fff;"><small style="color: #fff;">We are Agile (for Real)</small>Our Approach to software development</h2>
-                <div class="agile-info-cards">
-                    <div class="agile-info-card">
-                        <div>
-                            <h3 class="agile-info-card__heading">Individuals and interactions over processes and tools</h3>
-                            <p class="agile-info-card__text">We emphasize the importance of effective collaboration, communication,
-                                and teamwork within our software development projects, valuing the contributions of
-                                individuals and promoting an environment that encourages open dialogue.</p>
-                        </div>
-                    </div>
-                    <div class="agile-info-card">
-                        <div>
-                            <h3 class="agile-info-card__heading">Working software over comprehensive documentation</h3>
-                            <p class="agile-info-card__text">Our focus is on delivering working software that meets the needs of
-                                our customers. While documentation has its place, we believe that the primary measure of
-                                progress is functional and reliable software.</p>
-                        </div>
-                    </div>
-                    <div class="agile-info-card">
-                        <div>
-                            <h3 class="agile-info-card__heading">Customer collaboration over contract negotiation</h3>
-                            <p class="agile-info-card__text"> We actively engage our customers throughout the development process,
-                                seeking their feedback and involvement to ensure that the final product aligns with
-                                their vision and goals. We believe in building strong partnerships based on
-                                collaboration and trust.</p>
-                        </div>
-                    </div>
-                    <div class="agile-info-card">
-                        <div>
-                            <h3 class="agile-info-card__heading">Responding to Change over following a plan</h3>
-                            <p class="agile-info-card__text">We recognize that software development is an iterative process and
-                                that requirements may change over time. We embrace change and adapt our plans
-                                accordingly, continuously seeking feedback and making adjustments to deliver the best
-                                possible outcome.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <section class="section section__vocab" id="c8-vocabulary">
