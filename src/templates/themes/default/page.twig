@@ -439,7 +439,7 @@
             <div class="container">
                 <h2 class="section-heading" style="color: var(--color-blue);"><small style="color: var(--color-grey);">Get in Touch</small>Contact us for more information</h2>
                 <div class="contact__form-container">
-                    <form id="contactForm" method="post">
+                    <form id="contactForm" action="/api/frontend/contact-us?formToken={{ formToken ("/api/frontend/contact-us") }}" method="post">
                         <div class="form-group--two-col">
                             <div class="form-group">
                                 <label for="userName">FULL NAME *</label>
@@ -457,7 +457,7 @@
                         <div class="form-group--two-col">
                             <div class="form-group">
                                 <label for="userTel">PHONE</label>
-                                <input id="userTel" name="userTel" placeholder="Enter your phone number" class="form-control">
+                                <input id="userTel" name="userTel" placeholder="Enter your phone number" class="form-control" minlength="5" maxlength="16">
                                 <span id="userTelError" class="validation-tag"></span>
                             </div>
 
@@ -474,7 +474,7 @@
                             <span id="userMessageError" class="validation-tag"></span>
                         </div>
 
-                        <button type="button" onclick="validateForm()" id="submitButton" disabled>Send Message</button>
+                        <button type="submit" onclick="validateForm()" id="submitButton" disabled>Send Message</button>
                     </form>
                     <script>
                         let fields = [
@@ -537,6 +537,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
 
