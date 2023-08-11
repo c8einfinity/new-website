@@ -24,6 +24,8 @@
     <meta name="twitter:url" content="https://www.codeinfinity.co.za" />
     <meta name="twitter:image" content="https://codeinfinity.co.za/images/og-image.jpg" />
 
+    {% set googleRecaptchaSiteKey = Tina4.call("SystemInformation", "getGoogleSiteKey") %}
+
     {% block headers %}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -277,7 +279,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -460,38 +461,38 @@
                             <span id="userNameError" class="validation-tag"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="userEmail">EMAIL *</label>
-                            <input type="email" id="userEmail" name="userEmail" required placeholder="Enter your Email"
-                                   class="form-control">
-                            <span id="userEmailError" class="validation-tag"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group--two-col">
-                        <div class="form-group">
-                            <label for="userTel">PHONE</label>
-                            <input id="userTel" name="userTel" placeholder="Enter your phone number"
-                                   class="form-control" minlength="5" maxlength="16">
-                            <span id="userTelError" class="validation-tag"></span>
+                            <div class="form-group">
+                                <label for="userEmail">EMAIL *</label>
+                                <input type="email" id="userEmail" name="userEmail" required placeholder="Enter your Email"
+                                       class="form-control">
+                                <span id="userEmailError" class="validation-tag"></span>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="userCompany">COMPANY</label>
-                            <input type="text" id="userCompany" name="userCompany" placeholder="Enter your company name"
-                                   class="form-control">
-                            <span id="userCompanyError" class="validation-tag"></span>
+                        <div class="form-group--two-col">
+                            <div class="form-group">
+                                <label for="userTel">PHONE</label>
+                                <input id="userTel" name="userTel" placeholder="Enter your phone number"
+                                       class="form-control" minlength="5" maxlength="16">
+                                <span id="userTelError" class="validation-tag"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userCompany">COMPANY</label>
+                                <input type="text" id="userCompany" name="userCompany" placeholder="Enter your company name"
+                                       class="form-control">
+                                <span id="userCompanyError" class="validation-tag"></span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="userMessage">MESSAGE *</label>
-                        <textarea type="text" id="userMessage" name="userMessage" cols="5" rows="5" required
-                                  placeholder="Type your message" class="form-control"></textarea>
-                        <span id="userMessageError" class="validation-tag"></span>
-                    </div>
+                        <div class="form-group">
+                            <label for="userMessage">MESSAGE *</label>
+                            <textarea type="text" id="userMessage" name="userMessage" cols="5" rows="5" required
+                                      placeholder="Type your message" class="form-control"></textarea>
+                            <span id="userMessageError" class="validation-tag"></span>
+                        </div>
 
-                    <div id="message" style="display: none"></div>
+                        <div id="message" style="display: none"></div>
 
                     <button type="submit" class="g-recaptcha">Send Message</button>
                 </form>
@@ -607,7 +608,6 @@
             </div>
         </div>
     </footer>
-
     {#    {% block content %} #}
     {#        {{ content | raw }} #}
     {#    {% endblock %} #}
