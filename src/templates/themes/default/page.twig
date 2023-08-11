@@ -511,7 +511,7 @@
                             }
 
                             let phone = document.getElementById("userTel").value;
-                            if (phone && !phone.match(/^\+?[1-9]\d{1,14}$/)) {
+                            if (phone && !phone.match(/^\+?[0-9]\d{1,14}$/)) {
                                 document.getElementById("userTelError").innerText = "Please enter a valid phone number.";
                                 document.getElementById("userTel").classList.add("error");
                                 isValid = false;
