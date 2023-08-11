@@ -4,6 +4,11 @@ use function Tina4\renderTemplate;
 
 \Tina4\Post::add("/api/frontend/contact-us", function (\Tina4\Response $response, \Tina4\Request $request) {
     $requestParams = $request->params;
+
+    if (!Captcha::checkCaptcha($requestParams["captchaToken"], $requestParams["captchaAction"])) {
+        return $response ("<script>alert('Are you a bot?')</script>", HTTP_OK, TEXT_HTML);
+    }
+
     $emailHelper = (new Email());
     $userName = $requestParams["userName"];
     $userEmail = $requestParams["userEmail"];
@@ -15,11 +20,11 @@ use function Tina4\renderTemplate;
     if (!$emailHelper->sendContactEmail($userName, $userEmail, $userTel, $userCompany, $userMessage, 1, $_ENV["RECEIVING_EMAIL"])) {
         // Email didn't send
         // Display error message
-        return $response (renderTemplate("/frontend/email/contact-us-error.twig"), HTTP_OK, TEXT_HTML);
+        return $response (["message" => "<h3>Email could not be sent. Please try again.</h3>"], HTTP_OK, TEXT_HTML);
     }
 
     $emailHelper->sendContactEmail($userName, $userEmail, $userTel, $userCompany, $userMessage, 0, $userEmail);
 
     // Email sent
-    return $response (renderTemplate("/frontend/email/contact-us-success.twig"), HTTP_OK, TEXT_HTML);
+    return $response (["message" => "<h3>Email has been sent. We will get back to you are soon as we can. Enjoy the rest of your day.</h3>"], HTTP_OK, TEXT_HTML);
 });

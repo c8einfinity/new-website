@@ -16,8 +16,8 @@ class Captcha
     public static function checkCaptcha(string $token, string $action)
     {
         if (!$token) {
-            echo '<h2>Please check the captcha form.</h2>';
-            exit;
+            echo '<h2>Please check the captcha form or refresh the page.</h2>';
+            die();
         }
 
         // post request to server
@@ -37,8 +37,8 @@ class Captcha
 
         if ($responseKeys["success"] && $responseKeys["action"] == $action && $responseKeys["score"] >= 0.5 || $_ENV["TINA4_DEBUG"]) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 }
