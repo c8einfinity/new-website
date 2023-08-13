@@ -461,44 +461,82 @@
                             <span id="userNameError" class="validation-tag"></span>
                         </div>
 
-                            <div class="form-group">
-                                <label for="userEmail">EMAIL *</label>
-                                <input type="email" id="userEmail" name="userEmail" required placeholder="Enter your Email"
-                                       class="form-control">
-                                <span id="userEmailError" class="validation-tag"></span>
-                            </div>
+                        <div class="form-group">
+                            <label for="userEmail">EMAIL *</label>
+                            <input type="email" id="userEmail" name="userEmail" required placeholder="Enter your Email"
+                                   class="form-control">
+                            <span id="userEmailError" class="validation-tag"></span>
                         </div>
+                    </div>
 
-                        <div class="form-group--two-col">
-                            <div class="form-group">
-                                <label for="userTel">PHONE</label>
-                                <input id="userTel" name="userTel" placeholder="Enter your phone number"
-                                       class="form-control" minlength="5" maxlength="16">
-                                <span id="userTelError" class="validation-tag"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="userCompany">COMPANY</label>
-                                <input type="text" id="userCompany" name="userCompany" placeholder="Enter your company name"
-                                       class="form-control">
-                                <span id="userCompanyError" class="validation-tag"></span>
-                            </div>
+                    <div class="form-group--two-col">
+                        <div class="form-group">
+                            <label for="userTel">PHONE</label>
+                            <input id="userTel" name="userTel" placeholder="Enter your phone number"
+                                   class="form-control" minlength="5" maxlength="16" required>
+                            <span id="userTelError" class="validation-tag"></span>
                         </div>
 
                         <div class="form-group">
-                            <label for="userMessage">MESSAGE *</label>
-                            <textarea type="text" id="userMessage" name="userMessage" cols="5" rows="5" required
-                                      placeholder="Type your message" class="form-control"></textarea>
-                            <span id="userMessageError" class="validation-tag"></span>
+                            <label for="userCompany">COMPANY</label>
+                            <input type="text" id="userCompany" name="userCompany" placeholder="Enter your company name"
+                                   class="form-control">
+                            <span id="userCompanyError" class="validation-tag"></span>
                         </div>
+                    </div>
 
-                        <div id="message" style="display: none"></div>
+                    <div class="form-group">
+                        <label for="userMessage">MESSAGE *</label>
+                        <textarea type="text" id="userMessage" name="userMessage" cols="5" rows="5" required
+                                  placeholder="Type your message" class="form-control"></textarea>
+                        <span id="userMessageError" class="validation-tag"></span>
+                    </div>
 
-                    <button type="submit" class="g-recaptcha">Send Message</button>
+                    <div id="message" style="display: none"></div>
+
+                    <button type="submit" id="submitButton" class="g-recaptcha">Send Message</button>
                 </form>
 
                 <script>
                     let contactForm = $('#contactForm');
+
+                    $(document).ready(() => {
+                        contactForm.validate({
+                            rules: {
+                                userEmail: {
+                                    email: true,
+                                },
+                                userTel: {
+                                    digits: true
+                                }
+                            },
+                            messages: {
+                                userEmail: "Please enter a valid email address.",
+                                userTel: "Please enter a valid phone number."
+                            },
+                            errorPlacement: function (error, element) {
+                                let elementName = element.attr("name");
+
+                                switch (elementName) {
+                                    case "userName":
+                                    case "userEmail":
+                                    case "userTel":
+                                    case "userCompany":
+                                    case "userMessage":
+                                        $(`#${elementName}Error`).html(error[0].outerText);
+                                        break;
+                                }
+                            }
+                        });
+                    });
+
+                    $("#submitButton").click(() => {
+                        $("#userNameError").html("");
+                        $("#userEmailError").html("");
+                        $("#userTelError").html("");
+                        $("#userMessageError").html("");
+                        $("#userCompanyError").html("");
+                    });
 
                     contactForm.submit(function (e) {
                         e.preventDefault();
@@ -520,67 +558,23 @@
                                         }
                                     }).done(function (data) {
                                         let message = $('#message');
-                                        message.show();
+                                        message.html("");
 
                                         if (data.message !== undefined) {
                                             message.html(data.message);
                                         } else {
                                             message.html(data);
                                         }
-                                    });
+
+                                        message.show();
+                                    }).fail(() => {
+                                        alert("Your token has expired. Page will be refreshed.");
+                                        location.reload();
+                                    })
                                 });
                             });
                         }
                     });
-
-                    let fields = [
-                        {id: "userName", label: "Full name", required: true},
-                        {id: "userEmail", label: "Email address", required: true},
-                        {id: "userTel", label: "Phone number", required: false},
-                        {id: "userCompany", label: "Company", required: false},
-                        {id: "userMessage", label: "Message", required: true}
-                    ];
-
-                    window.validateForm = function () {
-                        let isValid = true;
-
-                        fields.forEach(field => {
-                            let value = document.getElementById(field.id).value.trim();
-                            let errorElement = document.getElementById(field.id + "Error");
-                            let inputElement = document.getElementById(field.id);
-
-                            if (field.required && !value) {
-                                errorElement.innerText = field.label + " is required.";
-                                inputElement.classList.add("error");
-                                isValid = false;
-                            } else {
-                                errorElement.innerText = "";
-                                inputElement.classList.remove("error");
-                            }
-                        });
-
-                        let email = document.getElementById("userEmail");
-                        if (email.value && !email.value.match(/^\S+@\S+\.\S+$/)) {
-                            document.getElementById("userEmailError").innerText = "Please enter a valid email address.";
-                            email.classList.add("error");
-                            isValid = false;
-                        }
-
-                        let phone = document.getElementById("userTel");
-                        if (phone.value && !phone.value.match(/^\+?[0-9]\d{1,14}$/)) {
-                            document.getElementById("userTelError").innerText = "Please enter a valid phone number.";
-                            phone.classList.add("error");
-                            isValid = false;
-                        }
-
-                        document.getElementById('submitButton').disabled = !isValid;
-                        document.getElementById("contactForm").submit();
-
-                        return isValid;
-                    };
-
-                    document.getElementById('contactForm').addEventListener('input', window.validateForm);
-                    window.validateForm();
                 </script>
 
                 <div class="contact__info-container">
@@ -596,6 +590,7 @@
             </div>
         </div>
     </section>
+</div>
 
     <footer class="section section__footer">
         <div class="container">
@@ -612,5 +607,4 @@
     {#        {{ content | raw }} #}
     {#    {% endblock %} #}
     {% endblock %}
-</div>
 </html>
