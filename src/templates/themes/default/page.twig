@@ -473,7 +473,7 @@
                         <div class="form-group">
                             <label for="userTel">PHONE</label>
                             <input id="userTel" name="userTel" placeholder="Enter your phone number"
-                                   class="form-control" minlength="5" maxlength="16" required>
+                                   class="form-control" minlength="5" maxlength="16">
                             <span id="userTelError" class="validation-tag"></span>
                         </div>
 
@@ -513,29 +513,8 @@
                             messages: {
                                 userEmail: "Please enter a valid email address.",
                                 userTel: "Please enter a valid phone number."
-                            },
-                            errorPlacement: function (error, element) {
-                                let elementName = element.attr("name");
-
-                                switch (elementName) {
-                                    case "userName":
-                                    case "userEmail":
-                                    case "userTel":
-                                    case "userCompany":
-                                    case "userMessage":
-                                        $(`#${elementName}Error`).html(error[0].outerText);
-                                        break;
-                                }
                             }
                         });
-                    });
-
-                    $("#submitButton").click(() => {
-                        $("#userNameError").html("");
-                        $("#userEmailError").html("");
-                        $("#userTelError").html("");
-                        $("#userMessageError").html("");
-                        $("#userCompanyError").html("");
                     });
 
                     contactForm.submit(function (e) {

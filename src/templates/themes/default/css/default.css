@@ -213,7 +213,7 @@ select.form-control:focus::-ms-value {
     margin-bottom: 20px;
 }
 
-.form-group label {
+.form-group label:not(.error) {
     font-size: 15px;
     font-weight: var(--font-weight-bold);
     color: var(--color-blue);
@@ -237,7 +237,7 @@ select.form-control:focus::-ms-value {
 }
 
 
-.validation-tag {
+label.error {
     color: #fff;
     background: #FFBA3F;
     border-radius: 4px;
@@ -251,7 +251,7 @@ select.form-control:focus::-ms-value {
     font-weight: 900;
 }
 
-.validation-tag:empty {
+label.error:empty {
     display: none;
 }
 
