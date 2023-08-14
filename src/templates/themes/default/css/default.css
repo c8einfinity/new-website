@@ -500,7 +500,7 @@ select.form-control:focus::-ms-value {
 .section__home {
     padding-top: calc(8% + 90px);
     padding-bottom: 250px;
-    background: #011429 url(/images/c8-background.jpg) no-repeat center bottom / cover;
+    background: #011429 url(/images/c8/background.jpg) no-repeat center bottom / cover;
     margin-top: -90px;
     position: relative;
 }
@@ -856,7 +856,7 @@ select.form-control:focus::-ms-value {
 .section__values {
     padding-top: 8%;
     padding-bottom: 8%;
-    background: #011429 url(/images/c8-background.jpg) no-repeat center bottom / cover;
+    background: #011429 url(/images/c8/background.jpg) no-repeat center bottom / cover;
     overflow: hidden;
     position: relative;
 }
@@ -1109,19 +1109,19 @@ select.form-control:focus::-ms-value {
 }
 
 .vocab-info-cards--col:first-child .vocab-info-card:first-child::before {
-    background: url(/images/icon-vocabulary-software-engineers.svg) no-repeat 96% 50%;
+    background: url(/images/icon-vocabulary/software-engineers.svg) no-repeat 96% 50%;
 }
 
 .vocab-info-cards--col:first-child .vocab-info-card:last-child::before {
-    background: url(/images/icon-vocabulary-discipline.svg) no-repeat 96% 50%;
+    background: url(/images/icon-vocabulary/discipline.svg) no-repeat 96% 50%;
 }
 
 .vocab-info-cards--col:last-child .vocab-info-card:first-child::before {
-    background: url(/images/icon-vocabulary-communication.svg) no-repeat 96% 50%;
+    background: url(/images/icon-vocabulary/communication.svg) no-repeat 96% 50%;
 }
 
 .vocab-info-cards--col:last-child .vocab-info-card:last-child::before {
-    background: url(/images/icon-vocabulary-service.svg) no-repeat 96% 50%;
+    background: url(/images/icon-vocabulary/service.svg) no-repeat 96% 50%;
 }
 
 .vocab-info-cards--col .vocab-info-card::before {
