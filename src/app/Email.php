@@ -28,19 +28,25 @@ class Email
     }
 
     /**
-     * @param string $email
-     * @param string $username
+     * @param string $userName
+     * @param string $userEmail
+     * @param string $userTel
+     * @param string $userCompany
+     * @param string $userMessage
      * @return bool
      */
-    public function sendContactEmail(string $email, string $username): bool
+    public function sendContactEmail(string $userName, string $userEmail, string $userTel, string $userCompany, string $userMessage, int $isAdmin, string $receivingEmail): bool
     {
-        $recipients[] = ["name" => "Code Infinity", "email" => $email];
-        $protocol = isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "https://" : "http://";
+        $recipients[] = ["name" => "Code Infinity", "email" => $receivingEmail];
 
         return $this->sendingEmail($recipients, "Code Infinity Contact Us", "frontend/email/contact-us.twig",
             [
-                "username" => $username,
-                "codeInfinityWebsite" => "{$protocol}{$_SERVER["HTTP_HOST"]}/"
+                "admin" => $isAdmin,
+                "userName" => $userName,
+                "userEmail" => $userEmail,
+                "userTel" => $userTel,
+                "userCompany" => $userCompany,
+                "userMessage" => $userMessage
             ]);
     }
 }
