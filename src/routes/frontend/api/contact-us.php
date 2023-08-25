@@ -25,9 +25,11 @@ use function Tina4\renderTemplate;
 
     // Notify user about failed email attempt to their email address
     if (!$emailHelper->sendContactEmail($userName, $userEmail, $userTel, $userCompany, $userMessage, 0, $userEmail)) {
-        return $response (["message" => "<h3>An email could not be sent to your email address due to a problem, but your contact information has been received on our side. Please be patient.</h3>"], HTTP_OK, TEXT_HTML);
+        return $response (["message" => "<p style='color: var(--color-blue);font-size: 20px;background: #16b2cf1c;border: 1px solid var(--color-blue);line-height: 1;padding: 10px 13px 12px;border-radius: 3px;width: max-content;'>Oops! There was an error sending your email, but your contact information has been received on our side. Thank you for your patience</p>"], HTTP_OK, TEXT_HTML);
     }
 
     // Email sent
-    return $response (["message" => "<h3>Email has been sent. We will get back to you are soon as we can. Enjoy the rest of your day.</h3>"], HTTP_OK, TEXT_HTML);
+    return $response (["message" => "<p style='color: var(--color-blue);font-size: 20px;background: #16b2cf1c;border: 1px solid var(--color-blue);line-height: 1;padding: 10px 13px 12px;border-radius: 3px;width: max-content;'>Email sent successfully! We'll be in touch soon.</p>"], HTTP_OK, TEXT_HTML);
 });
+
+
