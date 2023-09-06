@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form method="post">
+    <form method="post" action="/signature/creator">
         <div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Name" value="{{ request.name }}">
@@ -14,18 +14,19 @@
         <div>
             <label for="title">Title:</label>
         <select name="title">
-            <option>CEO</option>
-            <option>CTO</option>
-            <option>Administration</option>
-            <option>Project Co-ordinator</option>
-            <option>UX & Design Lead</option>
-            <option>Junior UX Designer</option>
-            <option>Test Automation Engineer</option>
-            <option>Project Lead</option>
-            <option>Brand Manager</option>
-            <option>Junior Software Engineer</option>
-            <option>Software Engineer</option>
-            <option>Senior Software Engineer</option>
+            <option {% if request.title == "Junior Software Engineer" %} selected {% endif %}>Junior Software Engineer</option>
+            <option {% if request.title == "Apprentice Engineer" %} selected {% endif %}>Apprentice Engineer</option>
+            <option {% if request.title == "CEO" %} selected {% endif %}>CEO</option>
+            <option {% if request.title == "CTO" %} selected {% endif %}>CTO</option>
+            <option {% if request.title == "Accounts & Administration" %} selected {% endif %}>Accounts & Administration</option>
+            <option {% if request.title == "Project Co-ordinator" %} selected {% endif %}>Project Co-ordinator</option>
+            <option {% if request.title == "UX & Design Lead" %} selected {% endif %}>UX & Design Lead</option>
+            <option {% if request.title == "Junior UX Designer" %} selected {% endif %}>Junior UX Designer</option>
+            <option {% if request.title == "Test Automation Engineer" %} selected {% endif %}>Test Automation Engineer</option>
+            <option {% if request.title == "Project Lead<" %} selected {% endif %}>Project Lead</option>
+            <option {% if request.title == "Brand Manager" %} selected {% endif %}>Brand Manager</option>
+            <option {% if request.title == "Software Engineer" %} selected {% endif %}>Software Engineer</option>
+            <option {% if request.title == "Senior Software Engineer" %} selected {% endif %}>Senior Software Engineer</option>
         </select>
         </div>
         <div>
