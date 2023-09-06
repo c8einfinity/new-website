@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Signature Creator</title>
+</head>
+
+<body>
+    <form method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Name" value="{{ request.name }}">
+        </div>
+        <div>
+            <label for="title">Title:</label>
+        <select name="title">
+            <option>CEO</option>
+            <option>CTO</option>
+            <option>Administration</option>
+            <option>Project Co-ordinator</option>
+            <option>UX & Design Lead</option>
+            <option>Junior UX Designer</option>
+            <option>Test Automation Engineer</option>
+            <option>Project Lead</option>
+            <option>Brand Manager</option>
+            <option>Junior Software Engineer</option>
+            <option>Software Engineer</option>
+            <option>Senior Software Engineer</option>
+        </select>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Email Address" value="{{ request.email }}">
+        </div>
+        <div>
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" placeholder="mobile" value="{{ request.mobile }}">
+        </div>
+        <textarea name="additional_html">{{ request.additional_html | raw }}</textarea>
+        <input type="hidden" name="formToken" value="{{ formToken }}">
+        <button>Generate</button>
+    </form>
+    <div id="preview">
+    {{ signature | raw }}
+    </div>
+    <textarea id="signature">{{ signature }}</textarea>
+</body>
+
+</html>
