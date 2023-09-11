@@ -2,49 +2,487 @@
 <html lang="en">
 
 <head>
-    <title>Signature Creator</title>
+    <title>C8 Signature Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Dosis:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <style>
+        :root {
+            --font-family-main: 'Dosis', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --base-font-size: 19px;
+            --base-text-align: left;
+            --font-weight-regular: 400;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --color-grey: #6E757C;
+            --color-grey-rgb: 110, 117, 124;
+            --color-blue: #16B2CF;
+            --color-blue-rgb: 22, 178, 207;
+            --color-purple: #423D6D;
+            --color-purple-rgb: 66, 61, 109;
+            --color-dark-grey: #263238;
+            --color-dark-grey-rgb: 38, 50, 56;
+            --border-radius-base: 4px;
+        }
+
+        body {
+            padding: 20px;
+            height: 100vh;
+            background: #011429 ;
+            font-family: var(--font-family-main);
+            font-size: 18px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        button {
+            align-items: center;
+            background-clip: padding-box;
+            background-color: var(--color-blue);
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: var(--font-family-main);
+            font-size: 16px;
+            font-weight: 600;
+            justify-content: center;
+            line-height: 1.25;
+            margin: 0;
+            min-height: 3rem;
+            padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+            position: relative;
+            text-decoration: none;
+            transition: all 250ms;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: baseline;
+            width: auto;
+            text-transform: uppercase;
+        }
+
+        button:hover,
+        button:focus {
+            background-color: var(--color-blue);
+            box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            background-color: var(--color-blue);
+            box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .c8-logo {
+            width: 160px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .form-container, .signature-preview, .raw-code-output {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, .15);
+            padding: 43px;
+            max-width: 1066px;
+            margin: 0 auto;
+        }
+
+        .form-container * {
+            font-family: var(--font-family-main);
+        }
+
+        .form-container input, .form-container select {
+            font-family: var(--font-family-main);
+            font-size: 18px;
+        }
+
+        .form-container__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 15px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-blue);
+            position: absolute;
+            top: 10px;
+            left: 14px;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--color-dark-grey);
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #dddddd;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            padding: 34px 14px 10px 14px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .form-control {
+                -webkit-transition: none;
+                -o-transition: none;
+                transition: none;
+            }
+        }
+
+        .form-control::-ms-expand {
+            background-color: transparent;
+            border: 0;
+        }
+
+        .form-control:focus {
+            color: var(--color-dark-grey);
+            background-color: #fff;
+            border-color: var(--color-blue);
+            outline: 0;
+        }
+
+        .form-control::-webkit-input-placeholder {
+            color: #B8BABB;
+            opacity: 1;
+        }
+
+        .form-control::-moz-placeholder {
+            color: #B8BABB;
+            opacity: 1;
+        }
+
+        .form-control:-ms-input-placeholder {
+            color: #B8BABB;
+            opacity: 1;
+        }
+
+        .form-control::-ms-input-placeholder {
+            color: #B8BABB;
+            opacity: 1;
+        }
+
+        .form-control::placeholder {
+            color: #B8BABB;
+            opacity: 1;
+        }
+
+        .form-control:disabled, .form-control[readonly] {
+            background-color: #e9ecef;
+            opacity: 1;
+        }
+
+        select.form-control:focus::-ms-value {
+            color: var(--color-dark-grey);
+            background-color: #fff;
+        }
+
+
+        .signature-preview, .raw-code-output  {
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .signature-preview--copy-area, .form-container__content, .signature-html--copy-area {
+            padding: 40px;
+            border: 1px solid #e0e0e0;
+            background: #e0e0e0;
+            border-radius: 6px;
+        }
+
+        .signature-preview--copy-area * {
+            font-family: Arial, sans-serif;
+            color: unset;
+            font-size: unset;
+        }
+
+        .signature-preview--copy-area, .signature-html--copy-area {
+            min-height: 150px;
+            border: 2px dashed #c7c7c7;
+            padding-top: 70px;
+        }
+
+        .signature-html--copy-area {
+            padding: 40px;
+            position: relative;
+        }
+
+        .signature-preview--copy-area > div {
+            max-width: max-content;
+            margin: 0 auto;
+            padding: 19px;
+            border-radius: 4px;
+        }
+
+        .signature-html--copy-area pre {
+            font-size: 17px;
+            white-space: inherit;
+        }
+
+        .generate-button {
+            min-width: 260px;
+            margin: 0 auto;
+            display: block;
+            margin-top: 20px;
+        }
+
+        label.additional-info:before {
+            content: "";
+            background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 63%);
+            position: absolute;
+            top: -9px;
+            left: -8px;
+            right: -213px;
+            height: 50px;
+            display: block;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .signature-content * {
+            font-family: inherit; /* Reset font-family */
+            /* Add other styles as needed to customize the appearance of the signature */
+        }
+
+
+        .copy-buttons {
+            padding: 5px 10px;
+            min-height: 30px;
+        }
+
+        .copy-container {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #copyMessage:empty, #copyHTMLMessage:empty {
+            display: none;
+        }
+
+        #copyMessage, #copyHTMLMessage {
+            background: #fff;
+            height: 21px;
+            padding: 0 12px 0 8px;
+            line-height: 20px;
+            border-radius: 4px;
+            margin-right: -6px;
+            font-size: 15px;
+            opacity: 0;
+            transform: translateX(20%);
+            transition: opacity 0.2s ease-out, transform 0.5s cubic-bezier(0,1.2,.32,.95);
+        }
+
+        #copyMessage.fade-in, #copyHTMLMessage.fade-in {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.2s ease-out, transform 0.5s cubic-bezier(0,1.2,.32,.95);
+        }
+
+        #copyMessage.fade-out, #copyHTMLMessage.fade-out {
+            opacity: 0;
+            transform: translateX(20%);
+            transition: opacity 0.2s ease-out, transform 0.5s cubic-bezier(0,1.2,.32,.95);
+        }
+    </style>
 </head>
 
 <body>
+<h1 style="color: var( --color-blue); font-size: 34px; text-align: center;">Code Infinity Email Signature Generator</h1>
+<div class="form-container">
+    <h2 class="text-center" style="color: var(--color-blue); margin-top: 0;"><span style="display: block; color: var(--color-dark-grey);"><small>Step 1 - Generate</small></span>Please provide the credentials for your email signature and click the generate button.</h2>
     <form method="post" action="/signature/creator">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Name" value="{{ request.name }}">
+        <div class="form-container__content">
+            <div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input class="form-control" type="text" id="name" name="name" placeholder="Your Name" value="{{ request.name }}">
+                </div>
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <select class="form-control" name="title">
+                        <option selected disabled>Select your title</option>
+                        <option {% if request.title == "Junior Software Engineer" %} selected {% endif %}>Junior Software Engineer</option>
+                        <option {% if request.title == "Apprentice Engineer" %} selected {% endif %}>Apprentice Engineer</option>
+                        <option {% if request.title == "CEO" %} selected {% endif %}>CEO</option>
+                        <option {% if request.title == "CTO" %} selected {% endif %}>CTO</option>
+                        <option {% if request.title == "Accounts & Administration" %} selected {% endif %}>Accounts & Administration</option>
+                        <option {% if request.title == "Project Co-ordinator" %} selected {% endif %}>Project Co-ordinator</option>
+                        <option {% if request.title == "UX & Design Lead" %} selected {% endif %}>UX & Design Lead</option>
+                        <option {% if request.title == "Junior UX Designer" %} selected {% endif %}>Junior UX Designer</option>
+                        <option {% if request.title == "Test Automation Engineer" %} selected {% endif %}>Test Automation Engineer</option>
+                        <option {% if request.title == "Project Lead<" %} selected {% endif %}>Project Lead</option>
+                        <option {% if request.title == "Brand Manager" %} selected {% endif %}>Brand Manager</option>
+                        <option {% if request.title == "Software Engineer" %} selected {% endif %}>Software Engineer</option>
+                        <option {% if request.title == "Senior Software Engineer" %} selected {% endif %}>Senior Software Engineer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="email" id="email" name="email" placeholder="Your Email Address" value="{{ request.email }}">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label for="mobile">Mobile:</label>
+                    <input class="form-control" type="tel" id="mobile" name="mobile" placeholder="Your Mobile Number" value="{{ request.mobile }}">
+                </div>
+            </div>
+            <div class="form-group" style="height: 100%;">
+                <label class="additional-info" for="additional_html"><span style="z-index: 1; position: relative;">Additional raw HTML snippets:</span></label>
+                <textarea class="form-control" id="additional_html" name="additional_html" placeholder="Additional raw HTML such as Rate My Service (leave blank if N/A)" style="height: 100%;">{{ request.additional_html | raw }}</textarea>
+            </div>
+            <input class="form-control" type="hidden" name="formToken" value="{{ formToken }}">
         </div>
-        <div>
-            <label for="title">Title:</label>
-        <select name="title">
-            <option {% if request.title == "Junior Software Engineer" %} selected {% endif %}>Junior Software Engineer</option>
-            <option {% if request.title == "Apprentice Engineer" %} selected {% endif %}>Apprentice Engineer</option>
-            <option {% if request.title == "CEO" %} selected {% endif %}>CEO</option>
-            <option {% if request.title == "CTO" %} selected {% endif %}>CTO</option>
-            <option {% if request.title == "Accounts & Administration" %} selected {% endif %}>Accounts & Administration</option>
-            <option {% if request.title == "Project Co-ordinator" %} selected {% endif %}>Project Co-ordinator</option>
-            <option {% if request.title == "UX & Design Lead" %} selected {% endif %}>UX & Design Lead</option>
-            <option {% if request.title == "Junior UX Designer" %} selected {% endif %}>Junior UX Designer</option>
-            <option {% if request.title == "Test Automation Engineer" %} selected {% endif %}>Test Automation Engineer</option>
-            <option {% if request.title == "Project Lead<" %} selected {% endif %}>Project Lead</option>
-            <option {% if request.title == "Brand Manager" %} selected {% endif %}>Brand Manager</option>
-            <option {% if request.title == "Software Engineer" %} selected {% endif %}>Software Engineer</option>
-            <option {% if request.title == "Senior Software Engineer" %} selected {% endif %}>Senior Software Engineer</option>
-        </select>
-        </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" placeholder="Email Address" value="{{ request.email }}">
-        </div>
-        <div>
-            <label for="mobile">Mobile:</label>
-            <input type="text" id="mobile" name="mobile" placeholder="mobile" value="{{ request.mobile }}">
-        </div>
-        <textarea name="additional_html">{{ request.additional_html | raw }}</textarea>
-        <input type="hidden" name="formToken" value="{{ formToken }}">
-        <button>Generate</button>
+        <button id="generateBtn" class="generate-button">Generate Signature</button>
     </form>
-    <div id="preview">
-    {{ signature | raw }}
+</div>
+
+
+<div id="preview" class="signature-preview">
+    <h2 class="text-center" style="color: var(--color-blue); margin-top: 0;"><span style="display: block; color: var(--color-dark-grey);"><small>Step 2 - Copy/Paste</small></span>Select the content in the grey are below, and paste this into your Gmail:</h2>
+    <div style="position: relative;">
+        <div class="signature-preview--copy-area signature-content" style="position: relative;">
+            {{ signature | raw }}
+        </div>
+        <div class="copy-container">
+            <div id="copyMessage" class="fade-out"></div>
+            <button id="copyButton" class="copy-buttons">Or click here to copy to Clipboard</button>
+        </div>
     </div>
-    <textarea id="signature">{{ signature }}</textarea>
+</div>
+
+<div id="preview" class="raw-code-output">
+
+
+    <h2 class="text-center" style="color: var(--color-blue); margin-top: 0;"><span style="display: block; color: var(--color-dark-grey);"><small>Additional - Raw HTML</small></span>Because we 💙 code!</h2>
+
+    <div class="signature-html--copy-area">
+        <pre id="signature"><code>{{ signature }}</code></pre>
+        <div class="copy-container">
+            <div id="copyHTMLMessage" class="fade-out"></div>
+            <button id="copyHTMLButton" class="copy-buttons">Copy Raw HTML to Clipboard</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("copyButton").addEventListener("click", function() {
+        let copyText = document.querySelector(".signature-preview--copy-area");
+
+        // Create a contenteditable div off-screen
+        let tempDiv = document.createElement("div");
+        tempDiv.contentEditable = true;
+
+        // Place the content you want to copy inside the div
+        tempDiv.innerHTML = copyText.innerHTML;
+
+        // Position the div off-screen
+        tempDiv.style.position = 'fixed';
+        tempDiv.style.left = '-9999px';
+
+        // Append the div to the body
+        document.body.appendChild(tempDiv);
+
+        // Focus and select the content inside the div
+        tempDiv.focus();
+        let range = document.createRange();
+        range.selectNodeContents(tempDiv);
+        let selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        // Execute the "copy" command
+        document.execCommand('copy');
+
+        // Remove the div as it's no longer needed
+        document.body.removeChild(tempDiv);
+
+        // Update the message in the div
+        let copyMessage = document.getElementById("copyMessage");
+        copyMessage.textContent = "Content copied to clipboard!";
+
+        // Remove the "fade-in" class and add the "fade-out" class
+        copyMessage.classList.add("fade-in");
+        copyMessage.classList.remove("fade-out");
+
+        // After a few seconds, add the "fade-in" class again
+        setTimeout(function() {
+            copyMessage.classList.add("fade-out");
+            copyMessage.classList.remove("fade-in");
+        }, 3000); // Adjust the delay (in milliseconds) as needed
+    });
+
+
+    document.getElementById('copyHTMLButton').addEventListener('click', function () {
+        // Get the HTML content from the 'signature' element
+        const htmlToCopy = document.getElementById('signature').textContent;
+
+        // Create a temporary textarea element to store the HTML
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = htmlToCopy;
+
+        // Append the textarea to the document
+        document.body.appendChild(tempTextArea);
+
+        // Select the content of the textarea
+        tempTextArea.select();
+
+        // Copy the selected text to the clipboard
+        document.execCommand('copy');
+
+        // Remove the temporary textarea
+        document.body.removeChild(tempTextArea);
+
+        // Update the message in the div
+        let copyMessage = document.getElementById("copyHTMLMessage");
+        copyMessage.textContent = "Content copied to clipboard!";
+
+        // Remove the "fade-in" class and add the "fade-out" class
+        copyMessage.classList.add("fade-in");
+        copyMessage.classList.remove("fade-out");
+
+        // After a few seconds, add the "fade-in" class again
+        setTimeout(function() {
+            copyMessage.classList.add("fade-out");
+            copyMessage.classList.remove("fade-in");
+        }, 3000); // Adjust the delay (in milliseconds) as needed
+    });
+</script>
 </body>
 
 </html>
