@@ -1,7 +1,11 @@
 <?php
 
-\Tina4\Post::add("signature/creator", function (\Tina4\Response $response, \Tina4\Request $request) {
+\Tina4\Get::add("signature/creator", function (\Tina4\Response $response) {
 
+    return $response (\Tina4\renderTemplate("signature-creator.twig"), HTTP_OK, TEXT_HTML);
+});
+
+\Tina4\Post::add("signature/creator", function (\Tina4\Response $response, \Tina4\Request $request) {
     $additionalHtml = html_entity_decode($request->params["additional_html"]);
     $additionalHtmlVisible = !empty($additionalHtml);
 
