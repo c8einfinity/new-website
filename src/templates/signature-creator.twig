@@ -4,7 +4,6 @@
 <head>
     <title>C8 Signature Creator</title>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Dosis:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/themes/default/favicon-32x32.png">
     <style>
         :root {
@@ -393,7 +392,7 @@
     <h2 class="text-center" style="color: var(--color-blue); margin-top: 0;"><span style="display: block; color: var(--color-dark-grey);"><small>Additional - Raw HTML</small></span>Because we 💙 code!</h2>
 
     <div class="signature-html--copy-area">
-        <pre id="signature"><code>{{ signature }}</code></pre>
+        <pre id="signature"><code class="html">{{ signature }}</code></pre>
         <div class="copy-container">
             <div id="copyHTMLMessage" class="fade-out"></div>
             <button id="copyHTMLButton" class="copy-buttons">Copy Raw HTML to Clipboard</button>
@@ -483,6 +482,8 @@
             copyMessage.classList.remove("fade-in");
         }, 3000); // Adjust the delay (in milliseconds) as needed
     });
+
+
 </script>
 </body>
 
