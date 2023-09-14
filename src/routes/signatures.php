@@ -49,7 +49,7 @@
                         ),
                         _td(["style" => "padding-left: 15px;"],
                             _p(["style" => "font-family: Arial, sans-serif; font-size: 14px; margin: 0;"],
-                                _a(["style" => "text-decoration: none !important; color: #000000", "href" => "tel:" . $request->params["mobile"]], $request->params["mobile"])
+                                _a(["style" => "text-decoration: none !important; color: #000000; white-space: nowrap;", "href" => "tel:" . $request->params["mobile"]], $request->params["mobile"])
                             )
                         )
                     )
