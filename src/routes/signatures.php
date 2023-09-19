@@ -24,7 +24,7 @@
                         )
                     )
                 ),
-                _table(["width" => "22", "cellpadding" => "0", "cellspacing" => "0"],
+                _table(["width" => "22", "cellpadding" => "0", "cellspacing" => "0", "style" => "padding-top: 4px; padding-bottom: 4px;"],
                     _tr(
                         _td(
                             _img(["src" => "https://codeinfinity.co.za/images/c8-signature-phone.png", "alt" => "Phone Icon", "style" => "width: 22px;"])
@@ -65,14 +65,19 @@
         _tr(
             _td(["colspan" => "2", "style" => "padding-bottom: 8px;"],
                 _img(["src" => "https://codeinfinity.co.za/images/c8-email-signature-bar.png", "style" => "width: 648px; margin: 0; padding: 0;"]),
-                _p(["style" => "font-family: Arial, sans-serif; font-size: 10px; color: #9B9B9B; margin: 0 !important; line-height: 1.6;"],
+                _p(["style" => "font-family: Arial, sans-serif; font-size: 10px; color: #9B9B9B; margin: 0 !important; line-height: 1.4;"],
                     "The content of this email is confidential and intended for the recipient specified in the message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future."
                 )
             )
-        ),
-        _tr(
-            _td(["colspan" => "2", "style" => "{$additionalHtmlVisible}"],
-                $additionalHtml
+        )
+    );
+
+    $signature = _div(["style" => "background: #FFFFFF"], $signature,
+        _table(["width" => "648", "cellpadding" => "0", "cellspacing" => "0"],
+            _tr(
+                _td(["style" => ($additionalHtmlVisible ? "border-top: 1px solid #d4d4d4; padding-top: 10px;" : "")],
+                    $additionalHtml
+                )
             )
         )
     );
