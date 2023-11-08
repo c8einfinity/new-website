@@ -24,6 +24,16 @@
     <meta name="twitter:url" content="https://www.codeinfinity.co.za" />
     <meta name="twitter:image" content="https://codeinfinity.co.za/images/og-image.jpg" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMR3FZ1WS9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZMR3FZ1WS9');
+    </script>
+
     {% set googleRecaptchaSiteKey = Tina4.call("SystemInformation", "getGoogleSiteKey") %}
 
     {% block headers %}
