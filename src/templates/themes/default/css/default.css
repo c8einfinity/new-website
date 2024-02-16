@@ -15,7 +15,9 @@
     --color-dark-grey-rgb: 38, 50, 56;
     --border-radius-base: 4px;
 }
-
+*{
+    box-sizing: border-box;
+}
 html {
     font-size: var(--base-font-size);
     scroll-behavior: smooth;
@@ -776,6 +778,7 @@ label.error:empty {
 }
 
 .services-info-card__subtext {
+    position: relative;
     background: transparent linear-gradient(95deg, #2C799F 0%, #1E9DBD 100%) 0 0 no-repeat padding-box;
     box-shadow: 0 7px 12px rgba(0, 0, 0, 0.05);
     border-radius: var(--border-radius-base);
@@ -783,6 +786,11 @@ label.error:empty {
     transform: translateY(calc(-100% + 43px));
     margin-left: 30px;
     margin-right: 30px;
+}
+@media screen and (min-width: 280px)  {
+    .services-info-card__subtext {
+        transform: translateY(calc(-60% + 43px));
+    }
 }
 
 .services-info-card__subtext h4 {
@@ -1099,7 +1107,6 @@ label.error:empty {
     .vocab-info-symbol {
         left: -100px;
         bottom: 60px;
-
     }
 }
 
