@@ -786,9 +786,9 @@ label.error:empty {
     margin-left: 30px;
     margin-right: 30px;
 }
-@media screen and (min-width: 280px) and (max-width: 768px)  {
+@media (min-width: 280px)  {
     .services-info-card__subtext {
-        transform: translateY(calc(-60% + 43px));
+        transform: translateY(calc(-80% + 3px));
     }
 }
 
